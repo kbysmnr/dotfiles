@@ -111,5 +111,3 @@ set softtabstop=4
 " インデントの各段階に使われる空白の数
 set shiftwidth=4
 
-set number
-
