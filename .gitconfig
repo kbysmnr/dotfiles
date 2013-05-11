@@ -1,5 +1,7 @@
 [alias]
- st = status
+    st = status
 [user]
 	name = kbysmnr
 	email = kbysmnr@gmail.com
+[color]
+    ui = auto

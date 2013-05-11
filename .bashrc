@@ -100,4 +100,19 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# git ブランチ名表示
+function parse_git_branch {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+function precmd() {
+    PROMPT="[\h@\u:\W\$(parse_git_branch)] \$ "
+}
+function proml {
+    PS1="[\h@\u:\W\[\e[1;36m\]\$(parse_git_branch)\[\e[00m\]] \$ "
+}
+proml
+
+if [ -f ~/.git-completion.bash ]; then
+    source ~/.git-completion.bash
+fi
 
