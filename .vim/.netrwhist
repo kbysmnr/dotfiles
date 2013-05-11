@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/var/www/blog/wp-includes/theme-compat'
+let g:netrw_dirhist_2='/etc/apache2/sites-enabled'
+let g:netrw_dirhist_3='/home/crouton/.cpanm'
+let g:netrw_dirhist_4='/home/crouton/item/Ze/lib'
+let g:netrw_dirhist_5='/home/crouton/.znc/modules'

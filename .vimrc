@@ -111,3 +111,13 @@ set softtabstop=4
 " インデントの各段階に使われる空白の数
 set shiftwidth=4
 
+" ステータス行の表示
+set laststatus=2
+
+" [文字コード:改行コード][pwd]現在行数 現在地 ( % 表記 )
+set statusline=[%n]%t\ %=%1*%m%*%r%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}[%<%{fnamemodify(getcwd(),':~')}]\ %-6(line:%l%)\ %4P
+
+let g:solarized_termcolors=256
+syntax enable
+set background=dark
+colorscheme solarized
