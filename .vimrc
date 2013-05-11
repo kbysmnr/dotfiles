@@ -1,12 +1,3 @@
-" ハイライトを有効にする
-syntax on
-
-" タブをスペース扱いにする
-:set expandtab
-
-" タブを4スペースにする
-set tabstop=4
-
 " 文字コードの自動認識
 if &encoding !=# 'utf-8'
   set encoding=japan
@@ -48,6 +39,7 @@ if has('iconv')
   unlet s:enc_euc
   unlet s:enc_jis
 endif
+
 " 日本語を含まない場合は fileencoding に encoding を使うようにする
 if has('autocmd')
   function! AU_ReCheck_FENC()
@@ -57,9 +49,64 @@ if has('autocmd')
   endfunction
   autocmd BufReadPost * call AU_ReCheck_FENC()
 endif
+
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
+
 " □とか○の文字があってもカーソル位置がずれないようにする
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
+
+syntax on
+filetype plugin on
+
+" Vi互換をオフ
+set nocompatible
+
+" コマンドライン補完を拡張モードにする
+set wildmenu
+
+" filetypeの識別
+filetype on
+
+" 行番号とか右下に出す
+set ruler
+
+" オートインデントを有効にする
+set autoindent
+
+" 高度なインデント
+set smartindent
+
+" backspaceで行頭の空白,改行,insert時の手前文字削除可能
+set backspace=indent,eol,start
+
+" 検索結果文字列のハイライトを有効にする
+set hlsearch
+
+" マウス機能(wheel scroll)を有効に
+"set mouse=a
+
+" Tab文字の可視化
+set list
+set listchars=tab:>\ 
+
+" タブが対応する空白の数
+set tabstop=4
+
+" バッファを切替えてもundoの効力を失わない
+set hidden
+
+" 全角スペースを視覚化(SJIS only)
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
+au BufNewFile,BufRead * match ZenkakuSpace /　/
+
+" タブをスペースに変換する
+set expandtab
+
+" タブやバックスペースの使用等の編集操作をするときに、タブが対応する空白の数
+set softtabstop=4
+
+" インデントの各段階に使われる空白の数
+set shiftwidth=4
